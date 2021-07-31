@@ -67,6 +67,8 @@ class Router:
         print('Available commands:')
         for route in self.routes:
             print('  %s' % route.help())
+        print('  exit')
+        print('  die')
 
 
 class Route:
