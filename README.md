@@ -1,10 +1,13 @@
+# Build minimalist console applications easy!
+Mini framework for console apps.
+
 # Usage
 ```python
 # main.py
 import sys
 from src.Console import Console
 
-def hello_callback():
+def hello_callback(context):
     print ('Hello world!')
 
 c = Console()
@@ -63,4 +66,22 @@ We got our hello world!
 ```shell
 $ hello
 Hello world!
+```
+
+
+# Using a Controller
+```python
+# main.py
+from HelloController import HelloController
+c = Console()
+c.router.route('hello', HelloController())
+c.listen()
+
+# HelloController.py
+class HelloController:
+    def __init__(self):
+        self.message = "Hello world!"
+    
+    def __call__(self, context):
+        print(self.message)
 ```
